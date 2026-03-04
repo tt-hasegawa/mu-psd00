@@ -82,7 +82,7 @@ def send_api():
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": received_text}
             ], # type: ignore
-            model="google/gemma-3-27b-it:free", 
+            model="stepfun/step-3.5-flash:free", 
         )
         
         # APIからのレスポンスを取得
