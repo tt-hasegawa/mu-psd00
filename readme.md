@@ -6,7 +6,12 @@
 
 - フロントエンドに、Vue.js CDN版を用いています。
 
-- バックエンドに、Python,FlaskとOpenAI APIを用いて、OpenRouter APIを叩いています。
+- バックエンドに、Python,FlaskとOpenAI APIを用いてローカル起動のOllamaを叩いています。
+
+# 環境
+- Vscode
+- OpenCode
+- ollama
 
 # 開発ツールインストール
 
@@ -15,44 +20,50 @@
 - 以下のコマンドを実行し、必要なソフトウェアを入手します。
 
 ```
-winget install --id Git.Git -e --source winget
-winget install --id Python.Python.3 -e --source winget
-winget install --id Microsoft.VisualStudioCode -e --source winget
+winget install --id Microsoft.VisualStudioCode -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id Python.Python.3.13 -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id SST.opencode -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id Ollama.Ollama -e --source winget --accept-package-agreements --accept-source-agreements
+start /b ollama serve > NUL 2>&1
+timeout /t 3 /nobreak > NUL
+ollama pull qwen2.5-coder:0.5b
 ```
 
 - vscodeを起動し、アクティビティバーの拡張機能から、以下のプラグインをインストールしてください。
-
-  - Gemini Code Assist
   - Python
   - Vue.js Extension Pack
 
 # 環境セットアップ
 
-- [OpenRouter](https://openrouter.ai/)にアカウントを作成します。
-
-- OpenRouterで、Keys → Create API Keys を選択、適当なキー名を付けて作成し、キー文字列をメモ帳等に保存しておきます。
-
 - Python ライブラリインストール
 
   以下のコマンドでPythonの利用ライブラリをインストールします。
 
-  ``` pip install -r requrements.txt ```
+  ```
+  pip install -r requrements.txt
+  ```
 
 # 実行方法
 
-- example.envを.envにリネームして、OpenRouterのキーを記載してください。
-
 - 以下のコマンドでサーバを起動します。
 
-  ``` python app.py ```
+  ```
+  python app.py
+  ```
 
 - ブラウザで以下のURLにアクセスしてみてください。
 
-  ``` http://localhost:5000 ```
+  ```
+  http://localhost:5000
+  ```
 
 # 開発の参考資料
 
-- vscodeのGemini Code Assist を起動して修正を依頼すると、コードを修正したり解説してくれます。
+- ターミナルを開いて、 opencode と入力します。
+
+- /models と入力し、Freeとなっているモデルを任意に選択します。（ DeepSeek V4 Flash Free推奨 ）
+
+- opencodeに修正を依頼してみてください。（例：猫語で回答するボタンを追加して ）
 
 - フロントエンド担当者は、html/JavaScriptを追加／修正して画面を構築してください。
 
