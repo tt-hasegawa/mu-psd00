@@ -40,7 +40,7 @@ ollama pull qwen3.5:0.8b
   以下のコマンドでPythonの利用ライブラリをインストールします。
 
   ```
-  pip install -r requrements.txt
+  pip install -r requirements.txt
   ```
 
 # 実行方法
