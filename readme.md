@@ -59,9 +59,19 @@ ollama pull qwen2.5-coder:0.5b
 
 # 開発の参考資料
 
-- ターミナルを開いて、 opencode と入力します。
+- VsCode上でターミナルを開いて、 opencode と入力します。
 
-- /models と入力し、Freeとなっているモデルを任意に選択します。（ DeepSeek V4 Flash Free推奨 ）
+## ローカルの Ollama を使う場合（APIキー不要・完全オフライン）：
+
+- OpenCode 内で /connect と入力し、プロバイダーから Ollama を選択します（URLは既定の http://localhost:11434 のまま決定）。
+
+- /models と入力し、入手済みの qwen2.5-coder:0.5b を選択します。
+
+## クラウドの無料モデルを使う場合：
+
+- /models と入力し、Free 表示のあるモデルを選択します。（例: DeepSeek V4 Flash Free）
+
+## AIを用いたコード修正
 
 - opencodeに修正を依頼してみてください。（例：猫語で回答するボタンを追加して ）
 
