@@ -26,7 +26,7 @@ winget install --id SST.opencode -e --source winget --accept-package-agreements 
 winget install --id Ollama.Ollama -e --source winget --accept-package-agreements --accept-source-agreements
 start /b ollama serve > NUL 2>&1
 timeout /t 3 /nobreak > NUL
-ollama pull qwen2.5-coder:0.5b
+ollama pull qwen3.5:0.8b
 ```
 
 - vscodeを起動し、アクティビティバーの拡張機能から、以下のプラグインをインストールしてください。
@@ -59,15 +59,16 @@ ollama pull qwen2.5-coder:0.5b
 
 # 開発の参考資料
 
-- VsCode上でターミナルを開いて、 opencode と入力します。
-
 ## ローカルの Ollama を使う場合（APIキー不要・完全オフライン）：
 
-- OpenCode 内で /connect と入力し、プロバイダーから Ollama を選択します（URLは既定の http://localhost:11434 のまま決定）。
-
-- /models と入力し、入手済みの qwen2.5-coder:0.5b を選択します。
+- VsCode上でターミナルを開いて、以下を入力します。
+```
+ollama launch opencode --model=qwen3.5:0.8b
+```
 
 ## クラウドの無料モデルを使う場合：
+
+- VsCode上でターミナルを開いて、 opencode と入力します。
 
 - /models と入力し、Free 表示のあるモデルを選択します。（例: DeepSeek V4 Flash Free）
 
