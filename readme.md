@@ -59,20 +59,34 @@ ollama pull qwen3.5:0.8b
 
 # 開発の参考資料
 
-## ローカルの Ollama を使う場合（APIキー不要・完全オフライン）：
+## ローカルの Ollama を使う場合（低性能だが利用制限なし）：
 
 - VsCode上でターミナルを開いて、以下を入力します。
 ```
 ollama launch opencode --model=qwen3.5:0.8b
 ```
 
-## クラウドの無料モデルを使う場合：
+## クラウドの無料モデルを使う場合：(中性能、無料枠少ない)
 
 - VsCode上でターミナルを開いて、 opencode と入力します。
 
 - /models と入力し、Free 表示のあるモデルを選択します。（例: DeepSeek V4 Flash Free）
 
-## AIを用いたコード修正
+## Google AI Studioを使う場合:(高性能、無料枠多い)
+
+- [Google AI Studio](https://aistudio.google.com/api-keys)を開きます。
+
+- APIキーを作成、を押下し、キー名を適当に命名し、プロジェクトを新規作成します。
+
+- APIキーが表示されるので、クリップボードにコピーしておきます。
+
+- [プロジェクト一覧](https://aistudio.google.com/projects)を開き、新規作成したプロジェクトが無料枠となっていることを確認します。
+
+- VsCode上でターミナルを開いて、 opencode と入力します。
+
+- /connect と入力、プロバイダ一覧が表示されるので、Googleを選択、APIキーに先ほどのAPIキーを貼り付けます。
+
+# AIを用いたコード修正
 
 - opencodeに修正を依頼してみてください。（例：猫語で回答するボタンを追加して ）
 
