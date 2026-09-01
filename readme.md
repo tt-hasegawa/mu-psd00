@@ -26,7 +26,7 @@ winget install --id SST.opencode -e --source winget --accept-package-agreements 
 winget install --id Ollama.Ollama -e --source winget --accept-package-agreements --accept-source-agreements
 start /b ollama serve > NUL 2>&1
 timeout /t 3 /nobreak > NUL
-ollama pull qwen2.5-coder:0.5b
+ollama pull qwen3.5:0.8b
 ```
 
 - vscodeを起動し、アクティビティバーの拡張機能から、以下のプラグインをインストールしてください。
@@ -40,7 +40,7 @@ ollama pull qwen2.5-coder:0.5b
   以下のコマンドでPythonの利用ライブラリをインストールします。
 
   ```
-  pip install -r requrements.txt
+  pip install -r requirements.txt
   ```
 
 # 実行方法
@@ -59,19 +59,34 @@ ollama pull qwen2.5-coder:0.5b
 
 # 開発の参考資料
 
+## ローカルの Ollama を使う場合（低性能だが利用制限なし）：
+
+- VsCode上でターミナルを開いて、以下を入力します。
+```
+ollama launch opencode --model=qwen3.5:0.8b
+```
+
+## クラウドの無料モデルを使う場合：(中性能、無料枠少ない)
+
 - VsCode上でターミナルを開いて、 opencode と入力します。
-
-## ローカルの Ollama を使う場合（APIキー不要・完全オフライン）：
-
-- OpenCode 内で /connect と入力し、プロバイダーから Ollama を選択します（URLは既定の http://localhost:11434 のまま決定）。
-
-- /models と入力し、入手済みの qwen2.5-coder:0.5b を選択します。
-
-## クラウドの無料モデルを使う場合：
 
 - /models と入力し、Free 表示のあるモデルを選択します。（例: DeepSeek V4 Flash Free）
 
-## AIを用いたコード修正
+## Google AI Studioを使う場合:(高性能、無料枠多い)
+
+- [Google AI Studio](https://aistudio.google.com/api-keys)を開きます。
+
+- APIキーを作成、を押下し、キー名を適当に命名し、プロジェクトを新規作成します。
+
+- APIキーが表示されるので、クリップボードにコピーしておきます。
+
+- [プロジェクト一覧](https://aistudio.google.com/projects)を開き、新規作成したプロジェクトが無料枠となっていることを確認します。
+
+- VsCode上でターミナルを開いて、 opencode と入力します。
+
+- /connect と入力、プロバイダ一覧が表示されるので、Googleを選択、APIキーに先ほどのAPIキーを貼り付けます。
+
+# AIを用いたコード修正
 
 - opencodeに修正を依頼してみてください。（例：猫語で回答するボタンを追加して ）
 
