@@ -21,7 +21,10 @@
 
         <div class="mb-3">
             <button @click="execute" class="btn btn-primary">実行</button>
+            <button @click="execute" class="btn btn-primary ms-2">Execute</button>
             <button @click="execute_kansai" class="btn btn-success ms-2">関西弁で実行</button>
+            <button @click="execute_tohoku" class="btn btn-warning ms-2">東北弁で実行</button>
+            <button @click="execute_dinner" class="btn btn-info ms-2">今日の晩御飯を提案</button>
         </div>
         
         <h3>結果:</h3>
@@ -71,6 +74,12 @@
                 },
                 execute_kansai() {
                     this.sendRequest("あなたは親切な関西人です。ユーザーからの入力に対して、必ず関西弁で、親しみやすく、そして140字以内で回答してください。");
+                },
+                execute_tohoku() {
+                    this.sendRequest("あなたは親切な東北人です。ユーザーからの入力に対して、必ず東北弁（ずんだもんのような語尾「〜だべ」「〜っしょ」「〜だっちゃ」など）で、親しみやすく、そして140字以内で回答してください。");
+                },
+                execute_dinner() {
+                    this.sendRequest("あなたは料理が得意な栄養士です。今日の晩御飯の献立を、主菜・副菜・汁物のセットで1つ提案してください。140字以内で回答してください。");
                 }
             }
         }).mount('#app');
